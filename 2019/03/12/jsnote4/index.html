@@ -1,0 +1,321 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="前端之旅-珈蓝小羊人">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://jessica1990.github.io">
+    <!--SEO-->
+
+<meta name="description" content="描述 记录我和你的前端之旅 记录我和你的前端之旅 记录我和你的前端之旅">
+
+
+
+<meta name="keywords" content="关键词">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>javascript学习笔记（四）-- 闭包 | 前端之旅-珈蓝小羊人</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="前端之旅-珈蓝小羊人" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/img/banner/banner.jpeg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="John Doe">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://jessica1990.github.io">前端之旅-珈蓝小羊人</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/前端/"><i class="fa "></i>前端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="javascript学习笔记（四）-- 闭包">
+            
+	            javascript学习笔记（四）-- 闭包
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/前端 javascript">
+            前端 javascript
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/javascript 闭包" title="javascript 闭包">
+                        javascript 闭包
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/03/12</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote>
+<p>闭包是函数和声明该函数的词法环境（也称作用域）的组合。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function makeFunc() &#123;</span><br><span class="line">	var name = &apos;outer&apos;;</span><br><span class="line">	function displayName() &#123;</span><br><span class="line">		alert(name);</span><br><span class="line">	&#125;</span><br><span class="line">	return displayName;</span><br><span class="line">&#125;</span><br><span class="line">var myFunc = makeFunc();</span><br><span class="line">myFunc();</span><br></pre></td></tr></table></figure>
+<p>javascript中的函数会形成闭包，这个闭包的环境包含了该闭包创建时所能访问到的所有局部变量。</p>
+<h3 id="闭包模拟私有方法"><a href="#闭包模拟私有方法" class="headerlink" title="闭包模拟私有方法"></a>闭包模拟私有方法</h3><p>闭包很有用，因为它允许将函数与其所操作的某些数据（环境）关联起来。使用闭包可以模拟私有方法，私有方法不仅有利于限制对代码的访问，还提供了管理全局命名空间的强大能力，避免非核心的方法弄乱了代码的公共接口部分。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">var makeCounter = function() &#123;</span><br><span class="line">	var count = 0;</span><br><span class="line">	function changeBy(val) &#123;</span><br><span class="line">		count += val;</span><br><span class="line">	&#125;</span><br><span class="line">	return &#123;</span><br><span class="line">		increment: function() &#123;</span><br><span class="line">			changeBy(1);</span><br><span class="line">		&#125;,</span><br><span class="line">		decrement: function() &#123;</span><br><span class="line">			changeBy(-1);</span><br><span class="line">		&#125;,</span><br><span class="line">		value: function() &#123;</span><br><span class="line">			return count</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var counter1 = makeCounter();</span><br><span class="line">var counter2 = makeCounter();</span><br><span class="line"></span><br><span class="line">counter1.increment();</span><br><span class="line">counter1.value(); //1</span><br><span class="line"></span><br><span class="line">counter1.increment();</span><br><span class="line">counter1.value(); //2</span><br><span class="line"></span><br><span class="line">counter1. decrement();</span><br><span class="line">counter1.value(); //1</span><br><span class="line"></span><br><span class="line">counter2.value(); //0</span><br></pre></td></tr></table></figure>
+<p>由此可以看出，counter1中的三个私有方法共享同一个闭包，但是counter1和counter2之间的闭包是互相独立的。</p>
+<h3 id="循环中常见的闭包错误"><a href="#循环中常见的闭包错误" class="headerlink" title="循环中常见的闭包错误"></a>循环中常见的闭包错误</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function fn () &#123;</span><br><span class="line">  for (var i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">      console.log(i)</span><br><span class="line">    &#125;, 10)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+<p>上述代码不会输出期望的0-9，而是输出10个10。<br>原因是这里的匿名函数与声明该函数的词法环境形成了闭包，10个闭包在循环中被创建，并且他们共享了同一个词法作用域，这个作用域中存在一个变量i，当setTimeout结束开始执行其回调的匿名函数时，i已经++到了10。</p>
+<h4 id="如何解决该错误"><a href="#如何解决该错误" class="headerlink" title="如何解决该错误"></a>如何解决该错误</h4><p>解决该错误的实质就是要让多个闭包不再共享同一个词法环境，所以那就在创建闭包之前给它来个自己的词法环境，而创建函数就可以生成新的词法环境。所以可以按照以下方法解决问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function fn () &#123;</span><br><span class="line">  for (var i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">    uniq(i)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">function uniq (i) &#123;</span><br><span class="line">  setTimeout(function()&#123;</span><br><span class="line">    console.log(i)</span><br><span class="line">  &#125;, 10)</span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+<p>当然，这里的具名函数换成匿名自执行函数也是可以的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function fn () &#123;</span><br><span class="line">  for (var i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">    (function (e) &#123;</span><br><span class="line">      setTimeout(function()&#123;</span><br><span class="line">        console.log(e)</span><br><span class="line">      &#125;, 10)</span><br><span class="line">    &#125;)(i)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+<p>当然最简单的是es6的let带来的块作用域，这样多个闭包的词法环境也是独立的。</p>
+<h3 id="性能思考"><a href="#性能思考" class="headerlink" title="性能思考"></a>性能思考</h3><p>若不是某些特定任务需要使用闭包的话，在其他函数中创建函数是不明智的，因为闭包在处理速度和内存消耗方面对脚本性能有负面影响。</p>
+<p>如：在给对象创建方法时，方法通常要关联到对象的原型，而不是定义到对象的构造器中，因为如果定义到对象的构造器中，每次new的时候方法都会被重新赋值一次。这样的情况下不推荐闭包，而应该使用原型继承。</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2019/03/18/vue-graphql/" class="pre-post btn btn-default" title="vue项目引入graphql">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">vue项目引入graphql</span>
+        </a>
+    
+    
+        <a href="/2019/02/18/jsnote3/" class="next-post btn btn-default" title="javascript学习笔记（三）-- this, call, apply 和 bind">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">javascript学习笔记（三）-- this, call, apply 和 bind</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包模拟私有方法"><span class="toc-text">闭包模拟私有方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#循环中常见的闭包错误"><span class="toc-text">循环中常见的闭包错误</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何解决该错误"><span class="toc-text">如何解决该错误</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#性能思考"><span class="toc-text">性能思考</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

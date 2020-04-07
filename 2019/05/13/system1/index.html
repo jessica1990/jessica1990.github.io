@@ -1,0 +1,471 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="前端之旅-珈蓝小羊人">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://jessica1990.github.io">
+    <!--SEO-->
+
+<meta name="description" content="描述 记录我和你的前端之旅 记录我和你的前端之旅 记录我和你的前端之旅">
+
+
+
+<meta name="keywords" content="关键词">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>前端知识体系（一） | 前端之旅-珈蓝小羊人</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="前端之旅-珈蓝小羊人" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/img/banner/banner.jpeg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="John Doe">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://jessica1990.github.io">前端之旅-珈蓝小羊人</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/前端/"><i class="fa "></i>前端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="前端知识体系（一）">
+            
+	            前端知识体系（一）
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/前端">
+            前端
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/前端" title="前端">
+                        前端
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/05/13</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="1-盒模型"><a href="#1-盒模型" class="headerlink" title="1. 盒模型"></a>1. 盒模型</h3><ul>
+<li>content-box：w3c标准盒模型 <strong>width = content</strong></li>
+<li>border-box: IE盒模型 <strong>width = border + padding + content</strong></li>
+<li>padding-box: <strong>width = padding + content</strong></li>
+<li>margin-box: 浏览器未实现，猜测<strong>width = margin + border + padding + content</strong></li>
+</ul>
+<h3 id="2-BFC"><a href="#2-BFC" class="headerlink" title="2. BFC"></a>2. BFC</h3><p>Block Format Context（块级格式化上下文），CSS世界的结界，是一个独立的渲染区域，处于 BFC 内部的元素与外部的元素相互隔离，使内外元素的定位不会相互影响。</p>
+<p>IE下为 Layout，可通过 zoom:1 触发</p>
+<ul>
+<li><p>触发条件</p>
+<ul>
+<li>根元素 html</li>
+<li>position: absolute/fixed</li>
+<li>display: inline-block/table-cell/table-caption</li>
+<li>float: 非none</li>
+<li>overflow: 非visible</li>
+</ul>
+</li>
+<li><p>规则</p>
+<ul>
+<li>属于同一个BFC的两个相邻Box垂直排列</li>
+<li>属于同一个BFC的两个相邻Box的margin会重叠</li>
+<li>BFC中子元素的margin box的左边，与包含块（BFC）border-box的左边相接触（子元素absolute除外）</li>
+<li>BFC的区域不会与float的元素区域重叠</li>
+<li>计算BFC的高度时候，浮动子元素也参与计算</li>
+<li>文字层不会被浮动层覆盖，会环绕于周围</li>
+</ul>
+</li>
+<li><p>应用</p>
+<ul>
+<li>阻止margin重叠</li>
+<li>可以包含浮动元素 - 清除内部浮动（清除浮动的原理是两个div都位于同一个BFC中）</li>
+<li>自适应两栏布局</li>
+<li>可以阻止元素被浮动元素覆盖</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-层叠上下文"><a href="#3-层叠上下文" class="headerlink" title="3. 层叠上下文"></a>3. 层叠上下文</h3><p>元素提升为一个比较特殊的图层，在三维空间的z轴高出普通元素一等</p>
+<ul>
+<li>触发条件<ul>
+<li>根元素 html</li>
+<li>position</li>
+<li>css属性<ul>
+<li>flex</li>
+<li>transform</li>
+<li>opacity</li>
+<li>filter</li>
+<li>will-change</li>
+<li>-webkit-overflow-scrolling</li>
+<li>z-index</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>层叠等级</p>
+<ul>
+<li>在同一层叠上下文中，层叠等级才有意义</li>
+<li><p>z-index优先级最高</p>
+<p><img src="/img/layout.png" alt="层叠等级"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-居中布局"><a href="#4-居中布局" class="headerlink" title="4. 居中布局"></a>4. 居中布局</h3><ul>
+<li>水平居中<ul>
+<li>行内元素 text-align: center</li>
+<li>块级元素 margin: 0 auto 要设置宽度</li>
+<li>absolute + transform translateX</li>
+<li>flex + justify-content: center</li>
+</ul>
+</li>
+<li>垂直居中<ul>
+<li>行内元素 line-height: hright</li>
+<li>absolute + transform translateY</li>
+<li>flex + align-items: center</li>
+<li>table</li>
+</ul>
+</li>
+<li>水平垂直居中<ul>
+<li>absolute + transform</li>
+<li>flex + justify-content + align-items</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-选择器优先级"><a href="#5-选择器优先级" class="headerlink" title="5. 选择器优先级"></a>5. 选择器优先级</h3><ul>
+<li>!important &gt; 行内样式 &gt; #id &gt; .class(:伪类) &gt; tag &gt; * &gt; 继承 &gt; 默认</li>
+<li>选择器是<strong>从右到左</strong>解析，因此要少用通配符和标签选择器</li>
+</ul>
+<h3 id="6-去除浮动，防止父级塌陷"><a href="#6-去除浮动，防止父级塌陷" class="headerlink" title="6. 去除浮动，防止父级塌陷"></a>6. 去除浮动，防止父级塌陷</h3><ul>
+<li>增加尾元素清除浮动<ul>
+<li>:after</li>
+<li><br></li>
+<li>clear: both</li>
+</ul>
+</li>
+<li>创建父级BFC</li>
+<li>父级设置高度</li>
+</ul>
+<h3 id="7-link与-import区别"><a href="#7-link与-import区别" class="headerlink" title="7. link与@import区别"></a>7. link与@import区别</h3><ul>
+<li><strong>link</strong>功能较多，可以定义rss、rel等属性，而<strong>@import</strong>只能加载css</li>
+<li>当解析到<strong>link</strong>时候，页面是同步加载所引的css，而<strong>@import</strong>所引的css会等到页面加载完才被加载</li>
+<li><strong>link</strong>没有兼容性问题，<strong>@import</strong>有兼容性问题，要IE5以上才能用</li>
+<li><strong>link</strong>可以使用js动态引入，<strong>@import</strong>不行</li>
+</ul>
+<h3 id="8-CSS预处理器（Sass-Less-Stylus）"><a href="#8-CSS预处理器（Sass-Less-Stylus）" class="headerlink" title="8. CSS预处理器（Sass/Less/Stylus）"></a>8. CSS预处理器（Sass/Less/Stylus）</h3><ul>
+<li><p>变量：就像其他编程语言一样，免于多处修改。</p>
+<ul>
+<li>Sass：使用「$」对变量进行声明，变量名和变量值使用冒号进行分割</li>
+<li>Less：使用「@」对变量进行声明</li>
+<li>Stylus：中声明变量没有任何限定，结尾的分号可有可无，但变量名和变量值之间必须要有『等号』。但需要注意的是，如果用“@”符号来声明变量，Stylus会进行编译，但不会赋值给变量。就是说，Stylus 不要使用『@』声明变量。Stylus 调用变量的方法和Less、Sass完全相同。</li>
+</ul>
+</li>
+<li><p>作用域：有了变量，就必须得有作用域进行管理。就想js一样，它会从局部作用域开始往上查找变量。</p>
+<ul>
+<li>Sass：它的方式是三者中最差的，不存在全局变量的概念</li>
+<li>Less：它的方式和js比较相似，逐级往上查找变量</li>
+<li>Stylus：它的方式和Less比较相似，但是它和Sass一样更倾向于指令式查找</li>
+</ul>
+</li>
+<li><p>嵌套：对于css来说，有嵌套的写法无疑是完美的，更像是父子层级之间明确关系</p>
+<ul>
+<li>三者在这处的处理都是一样的，使用「&amp;」表示父元素</li>
+</ul>
+</li>
+</ul>
+<h3 id="9-动画"><a href="#9-动画" class="headerlink" title="9. 动画"></a>9. 动画</h3><ul>
+<li>translate</li>
+<li>scale</li>
+<li>rotate</li>
+<li>skew</li>
+<li>opacity</li>
+<li>color</li>
+</ul>
+<h2 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h2><h3 id="1-js加载"><a href="#1-js加载" class="headerlink" title="1. js加载"></a>1. js加载</h3><ul>
+<li>普通加载：浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行</li>
+<li>defer：加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成（defer是顺序执行的）</li>
+<li>async:加载和渲染后续文档元素的过程将和 script.js 的加载并行执行，该js加载完成会<strong>立即执行</strong>（因此async不保证执行顺序），执行该js会阻塞渲染和解析后续文档</li>
+</ul>
+<p>蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表 HTML 解析。<br><img src="../img/defer.png" alt="js加载"></p>
+<h3 id="2-原型-Prototype"><a href="#2-原型-Prototype" class="headerlink" title="2. 原型 Prototype"></a>2. 原型 Prototype</h3><ul>
+<li>只有<strong>函数</strong>才有prototype属性，通过构造函数生成的实例具有<strong>proto</strong>属性，该属性指向其构造函数的prototype</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function Person(name) &#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">var p1 = new Person(&apos;xiaoli&apos;);</span><br><span class="line">p1.__proto__ === Person.prototype; // true</span><br><span class="line">Person.prototype.constructor === Person; // true</span><br><span class="line">p1.__proto__.constructor === Person; // true</span><br></pre></td></tr></table></figure>
+<h3 id="3-new"><a href="#3-new" class="headerlink" title="3. new"></a>3. new</h3><p>上面的示例中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function Person(name) &#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">var p1 = new Person(&apos;xiaoli&apos;);</span><br></pre></td></tr></table></figure>
+<p>等同于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var p1 = &#123;&#125;;</span><br><span class="line">p1.__proto__ = Person.prototype;</span><br><span class="line">Person.call(p1, &apos;xiaoli&apos;);</span><br></pre></td></tr></table></figure>
+<h3 id="4-类型转换"><a href="#4-类型转换" class="headerlink" title="4. 类型转换"></a>4. 类型转换</h3><ul>
+<li>-、*、/、% ：一律转换成数值后计算</li>
+<li>+：<ul>
+<li>数字 + 字符串 = 字符串， 运算顺序是从左到右</li>
+<li>数字 + 对象， 优先调用对象的valueOf -&gt; toString</li>
+<li>数字 + boolean/null -&gt; 数字</li>
+<li>数字 + undefined -&gt; NaN</li>
+</ul>
+</li>
+<li>[1].toString() === ‘1’</li>
+<li>{}.toString() === ‘[object object]’</li>
+<li>NaN !== NaN</li>
+</ul>
+<h2 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h2><h3 id="1-hash-chunkhash-contenthash"><a href="#1-hash-chunkhash-contenthash" class="headerlink" title="1. hash chunkhash contenthash"></a>1. hash chunkhash contenthash</h3><ul>
+<li><strong>hash</strong>是工程级别的，即每次修改任何一个文件，所有文件的hash至都会改变。因此一旦修改了任何一个文件，整个工程的文件缓存都会失效（每个压缩后的文件的hash值是一样的，所以对于没有改变的模块而言，这样做显然不恰当，因为缓存失效了）。</li>
+<li><strong>chunkhash</strong>根据不同的入口文件（Entry）进行以来文件解析、构建对应的chunk、生成对应的hash值（每个chunk模块的hash值不一样）。在生产环境中把一些公共库和程序入口文件区分开，单独打包构建，接着我们采用contenthash的方式生成hash值，那么只要不改动公共库的代码，就可以保证其hash值不受影响就可以缓存了。但是这样又有一个问题，在同一个模块中，因为我们是将样式作为模块import到JavaScript文件中的，所以它们的chunkhash是一致的，此时如果只修改js，对应的css和js的hash值都改变，但css文件的内容并没有改变，所以又没有利用到缓存；如果只修改了css是不会参与chunkhash计算的，也不会作为独立的chunk计算，所以name和hash还是取得js的，那么由于chunkhash没变，导致浏览器使用了缓存，使得新改的css没有及时出效果，于是又有了<strong>contenhash</strong>。</li>
+<li><strong>contenthash</strong>是针对内容级别的，只有模块的内容变了，与之关联的hash值才会改变。</li>
+</ul>
+<p>感觉就是循序渐进的关系！</p>
+<p>在项目中，通常做法是把项目中css都抽离出对应的css文件来加以引用（css文件最好使用contenthash）。</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2019/07/11/jsnote6/" class="pre-post btn btn-default" title="jsnote6">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">jsnote6</span>
+        </a>
+    
+    
+        <a href="/2019/05/05/jsnote5/" class="next-post btn btn-default" title="javascript学习笔记（五）-- 作用域">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">javascript学习笔记（五）-- 作用域</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS"><span class="toc-text">CSS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-盒模型"><span class="toc-text">1. 盒模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-BFC"><span class="toc-text">2. BFC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-层叠上下文"><span class="toc-text">3. 层叠上下文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-居中布局"><span class="toc-text">4. 居中布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-选择器优先级"><span class="toc-text">5. 选择器优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-去除浮动，防止父级塌陷"><span class="toc-text">6. 去除浮动，防止父级塌陷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-link与-import区别"><span class="toc-text">7. link与@import区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-CSS预处理器（Sass-Less-Stylus）"><span class="toc-text">8. CSS预处理器（Sass/Less/Stylus）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-动画"><span class="toc-text">9. 动画</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Javascript"><span class="toc-text">Javascript</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-js加载"><span class="toc-text">1. js加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-原型-Prototype"><span class="toc-text">2. 原型 Prototype</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-new"><span class="toc-text">3. new</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-类型转换"><span class="toc-text">4. 类型转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webpack"><span class="toc-text">Webpack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-hash-chunkhash-contenthash"><span class="toc-text">1. hash chunkhash contenthash</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

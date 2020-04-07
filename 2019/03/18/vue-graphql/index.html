@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="前端之旅-珈蓝小羊人">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://jessica1990.github.io">
+    <!--SEO-->
+
+<meta name="description" content="描述 记录我和你的前端之旅 记录我和你的前端之旅 记录我和你的前端之旅">
+
+
+
+<meta name="keywords" content="关键词">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>vue项目引入graphql | 前端之旅-珈蓝小羊人</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="前端之旅-珈蓝小羊人" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/img/banner/banner.jpeg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="John Doe">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://jessica1990.github.io">前端之旅-珈蓝小羊人</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/前端/"><i class="fa "></i>前端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="vue项目引入graphql">
+            
+	            vue项目引入graphql
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/graphql">
+            graphql
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/graphql" title="graphql">
+                        graphql
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/03/18</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="1-引入graphql"><a href="#1-引入graphql" class="headerlink" title="1. 引入graphql"></a>1. 引入graphql</h3><p>在入口文件中引入graphql相关依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">// The Vue build version to load with the `import` command</span><br><span class="line">// (runtime-only or standalone) has been set in webpack.base.conf with an alias.</span><br><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">import App from &apos;./index.vue&apos;</span><br><span class="line">import &#123; ApolloClient &#125; from &apos;apollo-client&apos;</span><br><span class="line">import &#123; HttpLink &#125; from &apos;apollo-link-http&apos;</span><br><span class="line">import &#123; InMemoryCache &#125; from &apos;apollo-cache-inmemory&apos;</span><br><span class="line">import VueApollo from &apos;vue-apollo&apos;</span><br><span class="line"></span><br><span class="line">const httpLink = new HttpLink(&#123;</span><br><span class="line">  // You should use an absolute URL here</span><br><span class="line">  uri: &apos;http://192.168.10.5:3000/admin/graphql&apos;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// Create the apollo client</span><br><span class="line">const apolloClient = new ApolloClient(&#123;</span><br><span class="line">  link: httpLink,</span><br><span class="line">  cache: new InMemoryCache(),</span><br><span class="line">  connectToDevTools: true</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">const apolloProvider = new VueApollo(&#123;</span><br><span class="line">  defaultClient: apolloClient</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Vue.use(VueApollo)</span><br><span class="line">Vue.config.productionTip = false</span><br><span class="line"></span><br><span class="line">/* eslint-disable no-new */</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  provide: apolloProvider.provide(),</span><br><span class="line">  components: &#123; App &#125;,</span><br><span class="line">  template: &apos;&lt;App/&gt;&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="apollo-client"><a href="#apollo-client" class="headerlink" title="apollo-client"></a>apollo-client</h4><blockquote>
+<p>Apollo Client is the best way to use GraphQL to build client applications. The client is designed to help you quickly build a UI that fetches data with GraphQL, and can be used with any JavaScript front-end.</p>
+</blockquote>
+<p><strong>ApolloClient 作为缓存的查询存储, 以及分发查询结果</strong></p>
+<h4 id="apollo-link-http"><a href="#apollo-link-http" class="headerlink" title="apollo-link-http"></a>apollo-link-http</h4><blockquote>
+<p>Get GraphQL results over a network using HTTP fetch.</p>
+</blockquote>
+<h4 id="apollo-cache-inmemory"><a href="#apollo-cache-inmemory" class="headerlink" title="apollo-cache-inmemory"></a>apollo-cache-inmemory</h4><blockquote>
+<p>apollo-cache-inmemory is the default cache implementation for Apollo Client 2.0. InMemoryCache is a normalized data store that supports all of Apollo Client 1.0’s features without the dependency on Redux.</p>
+</blockquote>
+<h4 id="vue-apollo"><a href="#vue-apollo" class="headerlink" title="vue-apollo"></a>vue-apollo</h4><blockquote>
+<p>This library integrates apollo in your Vue components with declarative queries.</p>
+</blockquote>
+<p><strong>用于创建ApolloProvider，ApolloProvider 用于关联ApolloClient到Vue组件</strong></p>
+<h3 id="2-gql语句"><a href="#2-gql语句" class="headerlink" title="2. gql语句"></a>2. gql语句</h3><p>定义<strong>query</strong>、<strong>mutation</strong>、<strong>subscribtion</strong>等语句以供请求使用</p>
+<p><strong>graphql-tag</strong>库用于构造查询文档</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import gql from &apos;graphql-tag&apos;</span><br><span class="line"></span><br><span class="line">export const ASSETS = gql`</span><br><span class="line">  query Assets($first: Int,  $after: String) &#123;</span><br><span class="line">    assets(first: $first, after: $after) &#123;</span><br><span class="line">      totalCount</span><br><span class="line">      edges &#123;</span><br><span class="line">        node &#123;</span><br><span class="line">          id</span><br><span class="line">          code</span><br><span class="line">          label</span><br><span class="line">          kind</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      pageInfo &#123;</span><br><span class="line">        hasNextPage</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">`</span><br><span class="line"></span><br><span class="line">export const CREATE_ASSET = gql`</span><br><span class="line">  mutation CreateAsset($code: String!, $label: String!, $kind: Int!) &#123;</span><br><span class="line">    createAsset (code: $code, label: $label, kind: $kind) &#123;</span><br><span class="line">      id</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+<h3 id="3-在vue-components中使用"><a href="#3-在vue-components中使用" class="headerlink" title="3. 在vue components中使用"></a>3. 在vue components中使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// 引入定义好的gql语句</span><br><span class="line">import &#123; ASSETS, CREATE_ASSET &#125; from &apos;./graphql&apos;</span><br><span class="line">...</span><br><span class="line">created () &#123;</span><br><span class="line">  this.$apollo.query(&#123; // 查询</span><br><span class="line">    query: ASSETS</span><br><span class="line">  &#125;).then((res) =&gt; &#123;</span><br><span class="line">    console.log(res)</span><br><span class="line">  &#125;).catch(err =&gt; &#123;</span><br><span class="line">    console.log(err)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">    submit () &#123; // 新建</span><br><span class="line">      this.$apollo.mutate(&#123;</span><br><span class="line">        mutation: CREATE_ASSET,</span><br><span class="line">        variables: &#123;</span><br><span class="line">          id: &apos;id&apos;,</span><br><span class="line">          code: &apos;code&apos;,</span><br><span class="line">          label: &apos;label&apos;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;).then(res =&gt; &#123;</span><br><span class="line">        console.log(res)</span><br><span class="line">      &#125;).catch(err =&gt; &#123;</span><br><span class="line">        console.log(err)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>也可以在Vue.$apollo上进行相关的定义和使用，详情可参考<a href="https://vue-apollo.netlify.com/guide/apollo/queries.html#simple-query" target="_blank" rel="noopener">官网</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2019/04/09/webOptimization/" class="pre-post btn btn-default" title="前端性能优化及在项目中的实践">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">前端性能优化及在项目中的实践</span>
+        </a>
+    
+    
+        <a href="/2019/03/12/jsnote4/" class="next-post btn btn-default" title="javascript学习笔记（四）-- 闭包">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">javascript学习笔记（四）-- 闭包</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-引入graphql"><span class="toc-text">1. 引入graphql</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#apollo-client"><span class="toc-text">apollo-client</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#apollo-link-http"><span class="toc-text">apollo-link-http</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#apollo-cache-inmemory"><span class="toc-text">apollo-cache-inmemory</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue-apollo"><span class="toc-text">vue-apollo</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-gql语句"><span class="toc-text">2. gql语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-在vue-components中使用"><span class="toc-text">3. 在vue components中使用</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

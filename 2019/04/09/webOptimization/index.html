@@ -1,0 +1,431 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="前端之旅-珈蓝小羊人">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://jessica1990.github.io">
+    <!--SEO-->
+
+<meta name="description" content="描述 记录我和你的前端之旅 记录我和你的前端之旅 记录我和你的前端之旅">
+
+
+
+<meta name="keywords" content="关键词">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>前端性能优化及在项目中的实践 | 前端之旅-珈蓝小羊人</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="前端之旅-珈蓝小羊人" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/img/banner/banner.jpeg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="John Doe">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://jessica1990.github.io">前端之旅-珈蓝小羊人</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/前端/"><i class="fa "></i>前端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="前端性能优化及在项目中的实践">
+            
+	            前端性能优化及在项目中的实践
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/前端">
+            前端
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/性能优化" title="性能优化">
+                        性能优化
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/04/09</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>首先思考 从输入 URL 到页面加载完成，发生了什么？</p>
+<ul>
+<li><ol>
+<li>DNS 解析</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>TCP连接</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>HTTP请求</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>HTTP响应</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>浏览器得到响应数据、解析、渲染</li>
+</ol>
+</li>
+</ul>
+<p>由此可知，可以从以上几个过程中考虑如何优化。而前两步的优化往往需要服务器端developer协作完成，前端单方面的可作为空间有限，那么就从http请求到得到相应渲染页面这一过程来考虑前端性能优化。</p>
+<h3 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h3><p>优化方向为以下两种：</p>
+<ul>
+<li>减少请求次数  –  资源合并</li>
+<li>减少单次请求所花费的时间  –  资源压缩</li>
+</ul>
+<p>以上两个方向直指资源的合并与压缩，也就是构建工具webpack做的事情。可通过webpack以及相关插件进行优化。</p>
+<h4 id="javascript-css相关–构建层面"><a href="#javascript-css相关–构建层面" class="headerlink" title="javascript/css相关–构建层面"></a>javascript/css相关–构建层面</h4><ul>
+<li>利用CommonsChunkPlugin（webpack 4中被optimization.splitChunks 和 optimization.runtimeChunk替代）实现分包，把公用代码抽取出来，利用浏览器缓存来避免多次请求</li>
+<li>利用DllPlugin拆分资源</li>
+<li>利用Tree-Shaking删除冗余代码</li>
+</ul>
+<h4 id="javascript-css相关–代码层面"><a href="#javascript-css相关–代码层面" class="headerlink" title="javascript/css相关–代码层面"></a>javascript/css相关–代码层面</h4><ul>
+<li>link css放到head中，因为CSSOM和DOM都构建完成才能合力构建渲染树，将css放到head就是为了尽早构建CSSOM，防止阻塞渲染</li>
+<li>首屏快速显示可使用critical css，即 将首屏用到的css单拎为<strong>style</strong>标签放到<strong>head</strong>，其他css后置并设置<strong>rel=”preload”</strong>属性，<strong>rel=”preload”</strong>通知浏览器开始获取非关键CSS以供之后用。其关键在于，<strong>preload</strong>不阻塞渲染，无论资源是否加载完成，浏览器都会接着绘制页面，可以使用Node.js的模块<a href="https://github.com/addyosmani/critical" target="_blank" rel="noopener">Critical</a>来实现</li>
+<li>javascript会阻塞浏览器，因此要放到html尾部，或者按需使用defer（异步加载，整个文档解析完、DOMContentLoaded事件即将被触发时执行）或async（异步加载，该文件加载结束后立即执行）。实际上并不是javascript阻塞了浏览器，而是因为js引擎是独立于渲染引擎存在的，遇到js时，浏览器会将控制权交给js引擎，渲染引擎没权了自然无法继续工作</li>
+<li>异步模块加载，如将vue-router中的component从方案一改为方案二（利用function形式，在用到的时候返回相关组件）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//方案一</span><br><span class="line">import Home from &apos;@/view/home/index&apos;</span><br><span class="line">...</span><br><span class="line">component: Home</span><br><span class="line"></span><br><span class="line">//方案二</span><br><span class="line">const Home = () =&gt; import(&apos;@/view/home/index&apos;);</span><br><span class="line">...</span><br><span class="line">component: Home</span><br></pre></td></tr></table></figure>
+<h4 id="图片相关"><a href="#图片相关" class="headerlink" title="图片相关"></a>图片相关</h4><p>首先看下不同类型的图片的特性：</p>
+<h5 id="JPG"><a href="#JPG" class="headerlink" title="JPG"></a>JPG</h5><ul>
+<li>优点：最大的特点是有损压缩，压缩至原有体积的<strong>50%</strong>以下时，JPG 仍然可以保持住<strong>60%</strong>的品质，JPG 格式以 24 位存储单个图，可以呈现多达 1600 万种颜色，足以应对大多数场景下对色彩的要求，这一点决定了它压缩前后的质量损耗并不容易被我们人类的肉眼所察觉。</li>
+<li>缺点：处理线条感强或者颜色对比强烈的图像时会有明显的模糊，且不支持透明度处理</li>
+<li>适用场景：大的背景图、轮播图或 Banner 图</li>
+</ul>
+<h5 id="PNG"><a href="#PNG" class="headerlink" title="PNG"></a>PNG</h5><ul>
+<li>优点：PNG是无损压缩的高保真的图片格式，比 JPG 更强的色彩表现力，对线条的处理更加细腻，对透明度有良好的支持</li>
+<li>缺点：体积太大</li>
+<li>适用场景：小的 Logo、颜色简单且对比强烈的图片或背景</li>
+</ul>
+<h5 id="SVG"><a href="#SVG" class="headerlink" title="SVG"></a>SVG</h5><ul>
+<li>优点：<strong>文本文件、体积小、图片可无限放大而不失真、兼容性好，可压缩性更强</strong>。svg 基于 XML 语法的图像格式，与 jpg 和 png 不同处在于，svg 不是基于像素点，而是是基于对图像的形状描述。</li>
+<li>缺点：渲染成本比较高，有学习成本（因为它是可编程的）</li>
+<li>适用场景：常用于简单图像，需要修改或编辑等灵活使用的场景</li>
+</ul>
+<h5 id="Base64"><a href="#Base64" class="headerlink" title="Base64"></a>Base64</h5><ul>
+<li>优点：<strong>文本文件、依赖编码、小图标解决方案</strong>，Base64 并非一种图片格式，而是一种编码方式，浏览器可直接解析，无需发送http请求</li>
+<li>缺点：通过base64编码后，图片大小会变为原来的4/3</li>
+<li>适用场合：2kb以下的小图，更新频率很低，无法以雪碧图形式使用</li>
+</ul>
+<h5 id="WebP"><a href="#WebP" class="headerlink" title="WebP"></a>WebP</h5><ul>
+<li>优点：分无损压缩和有损压缩，支持透明，支持动图，同等质量下size更小</li>
+<li>缺点：兼容性差，增加服务器负担（与jpg相比，编码同质量的webP文件会占用更多的计算资源）</li>
+<li>适用场景：不需兼容，或做降级处理（修改图片后缀，支持webP的使用webP，不支持的使用其他常规图片）</li>
+</ul>
+<h5 id="相关性能优化"><a href="#相关性能优化" class="headerlink" title="相关性能优化"></a>相关性能优化</h5><ul>
+<li>为了体验好，可以将轮播图的首屏以base64形式展示，浏览器可直接解析无需http请求</li>
+<li>多个小图拼接雪碧图，减少http请求</li>
+<li>保证视觉无影响的情况下压缩图片到最小</li>
+<li>上传至服务端的图按照具体场景选择不同的质量压缩，如上传合同照片需要清晰度较高故质量指数要高，上传小头像则无需很高的质量指数</li>
+<li>多图时懒加载，如类似相册模式浏览图片时，只给当前图及其后3个依次添加src属性，避免一次请求过多的图片，多排图片竖屏滚动时，只在图片进入或即将进入视口时请求图片</li>
+<li>合适的场景用合适的图片格式，如大图、轮播图用jpg等，避免无谓的浪费</li>
+</ul>
+<h4 id="http携带数据相关"><a href="#http携带数据相关" class="headerlink" title="http携带数据相关"></a>http携带数据相关</h4><ul>
+<li>Gzip 压缩：HTTP 压缩的一种，对HTTP内容进行重新编码的过程。Gzip 压缩背后的原理，是在一个文本文件中找出一些重复出现的字符串、临时替换它们，从而使整个文件变小。</li>
+<li>cookie 中仅携带与服务器交互用的数据，纯存储的数据交给webStorage</li>
+<li>静态资源放到cdn上，除了能更快获取到资源外，还能避免不需要的cookie飞来飞去</li>
+</ul>
+<h4 id="页面数据存储相关"><a href="#页面数据存储相关" class="headerlink" title="页面数据存储相关"></a>页面数据存储相关</h4><ul>
+<li>利用浏览器缓存（Memory Cache，Service Worker Cache，HTTP Cache，Push Cache）</li>
+<li>利用本地存储（cookie，4k，来往于C/S；sessionStorage，5-10M，会话级别；localStorage，5-10M，永久存储；indexDB，无上限，永久存储）</li>
+</ul>
+<h3 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h3><h4 id="浏览器运行机制"><a href="#浏览器运行机制" class="headerlink" title="浏览器运行机制"></a>浏览器运行机制</h4><ul>
+<li>HTML parse：解析html文档输出<strong>DOM树</strong>，并在此过程中发出了页面渲染所需<strong>外部资源的http请求</strong></li>
+<li>Style：识别和加载CSS，解析CSS形成<strong>CSSOM</strong>，<strong>CSSOM</strong>的解析过程与<strong>DOM</strong>的解析过程是并行的，二者都解析完毕后形成<strong>渲染树</strong></li>
+<li>Layout：计算页面中所有元素的位置信息和大小信息</li>
+<li>Paint：将每个页面图层转换成像素，并对所有的媒体文件进行解码</li>
+<li>Composit：合并各个图层，将数据由CPU输出给GPU绘制到屏幕上</li>
+</ul>
+<p>之后每当有新元素加到DOM树种，浏览器会通过CSS引擎查询CSS样式表，找到符合的样式应用到该元素然后重新绘制。由此可以理出第一个可优化的点–CSS样式表优化以使其加快查询速度，此处要注意，CSS是从右往左匹配的。因此CSS代码方面可有以下优化点：</p>
+<ul>
+<li>避免使用通配符</li>
+<li>尽量避免使用标签选择器</li>
+<li>避免重复匹配和重复定义</li>
+<li>减少嵌套</li>
+</ul>
+<p>此外，由于js引擎和渲染引擎是独立的，二者要跨界交流就会依赖桥接接口，所以当js操作引起dom变化时，过桥费很昂贵，频繁过桥就愈加昂贵，所以应该避免不必要的过桥，要懂得让<strong>js为DOM分压</strong>，<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DocumentFragment" target="_blank" rel="noopener">DOM Fragment</a>就是这个思路。综上，相关的优化有以下几点：</p>
+<ul>
+<li>避免频繁操作DOM、过渡渲染</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//避免以下方式</span><br><span class="line">for(let i = 0; i &lt; 100; i++) &#123;</span><br><span class="line">	document.getElementById(&apos;test&apos;).innterHTML += &apos;&lt;span&gt;test&lt;/span&gt;&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//推荐以下方式</span><br><span class="line">let test = document.getElementById(&apos;test&apos;); //缓存结果，减少调用DOM接口就省了过桥费</span><br><span class="line">let content = &apos;&apos;;</span><br><span class="line">for(let i = 0; i &lt; 100; i++) &#123;</span><br><span class="line">	content += &apos;&lt;span&gt;test&lt;/span&gt;&apos;</span><br><span class="line">&#125;</span><br><span class="line">test.innerHTML = content; //减少DOM更改，可减少由此触发的重绘或回流</span><br></pre></td></tr></table></figure>
+<p>上文提到的重绘和回流：</p>
+<blockquote>
+<p><em>重绘</em>：当我们对 DOM 的修改导致了样式的变化、却并未影响其几何属性（比如修改了颜色或背景色）时，浏览器不需重新计算元素的几何属性、直接为该元素绘制新的样式</p>
+</blockquote>
+<blockquote>
+<p><em>回流</em>：也叫重排，当我们对 DOM 的修改引发了 DOM 几何尺寸的变化（width、height、padding、margin、left、top、border等）、或增减元素时，浏览器需要重新计算元素的几何属性（其他元素的几何属性和位置也会因此受到影响），然后再将计算的结果绘制出来。用到这些属性offsetTop、offsetLeft、 offsetWidth、offsetHeight、scrollTop、scrollLeft、scrollWidth、scrollHeight、clientTop、clientLeft、clientWidth、clientHeight时，也会立即触发回流。</p>
+</blockquote>
+<p>因此<strong>避免重绘和回流</strong>也是经典的优化点，如何避免呢？</p>
+<ul>
+<li>将上述的会触发回流的属性缓存起来，避免不必要的重复触发</li>
+<li>避免逐条改动样式，最好通过class一次性改动</li>
+<li>有复杂改动时将DOM离线，即将DOM先隐藏，复杂改变结束后再显示</li>
+<li>需要频繁变更的元素使用脱离文档流的样式</li>
+</ul>
+<p>此外，针对操作或其他的<strong>节流和防抖</strong>也是十分非常特别相当必要的。</p>
+<blockquote>
+<p><em>节流</em>：在某段时间内，不管你触发了多少次回调，都只认第一次，并在计时结束时给予响应</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function throttle(fn, delay = 0) &#123;</span><br><span class="line">  let timer = null;</span><br><span class="line">  return function() &#123;</span><br><span class="line">    let context = this;</span><br><span class="line">    if(!timer) &#123;</span><br><span class="line">      timer = setTimeout(() =&gt; &#123;</span><br><span class="line">        timer = null;</span><br><span class="line">      &#125;, delay)</span><br><span class="line">      return fn.apply(context, arguments) // 加return是因为fn可能会有返回值</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><em>防抖</em>：在某段时间内，不管你触发了多少次回调，都只认最后一次,并在计时结束时给予响应</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function debounce(fn, delay = 0) &#123;</span><br><span class="line">  let timer = null;</span><br><span class="line">  return function() &#123;</span><br><span class="line">    if(timer) &#123;</span><br><span class="line">      clearTimeout(timer);</span><br><span class="line">    &#125;</span><br><span class="line">    timer = setTimeout(() =&gt; &#123;</span><br><span class="line">      return fn.apply(this, arguments)</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2019/04/15/tcp/" class="pre-post btn btn-default" title="TCP三次握手和四次挥手">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">TCP三次握手和四次挥手</span>
+        </a>
+    
+    
+        <a href="/2019/03/18/vue-graphql/" class="next-post btn btn-default" title="vue项目引入graphql">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">vue项目引入graphql</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP请求"><span class="toc-text">HTTP请求</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#javascript-css相关–构建层面"><span class="toc-text">javascript/css相关–构建层面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#javascript-css相关–代码层面"><span class="toc-text">javascript/css相关–代码层面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图片相关"><span class="toc-text">图片相关</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#JPG"><span class="toc-text">JPG</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#PNG"><span class="toc-text">PNG</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SVG"><span class="toc-text">SVG</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Base64"><span class="toc-text">Base64</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#WebP"><span class="toc-text">WebP</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#相关性能优化"><span class="toc-text">相关性能优化</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#http携带数据相关"><span class="toc-text">http携带数据相关</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#页面数据存储相关"><span class="toc-text">页面数据存储相关</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#渲染"><span class="toc-text">渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#浏览器运行机制"><span class="toc-text">浏览器运行机制</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
