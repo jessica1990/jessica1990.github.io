@@ -31,7 +31,7 @@
     <!--Title-->
 
 
-<title>javascript学习笔记（三）-- this, call, apply 和 bind | 前端之旅-珈蓝小羊人</title>
+<title>js设计模式核心原理（一） | 前端之旅-珈蓝小羊人</title>
 
 
     <link rel="alternate" href="/atom.xml" title="前端之旅-珈蓝小羊人" type="application/atom+xml">
@@ -132,9 +132,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="javascript学习笔记（三）-- this, call, apply 和 bind">
+        <h1 id="js设计模式核心原理（一）">
             
-	            javascript学习笔记（三）-- this, call, apply 和 bind
+	            js设计模式核心原理（一）
             
         </h1>
         <div class="post-meta">
@@ -142,8 +142,8 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/前端 javascript">
-            前端 javascript
+        <a href="/categories/ ">
+             
         </a>
     </span>
     
@@ -154,8 +154,8 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/javascript this" title="javascript this">
-                        javascript this
+                    <a href="/tags/javascript" title="javascript">
+                        javascript
                     </a>
                 
             
@@ -167,7 +167,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2019/02/18</span>
+            <span class="date-meta">2020/04/07</span>
         </span>
         
     
@@ -175,23 +175,37 @@
 
             
             
-            <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>413</strong>天之前发表，文中内容可能已经过时。
-            </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><p><strong>this</strong>是函数运行时，在函数体内部自动生成的一个对象，是函数运行时所在的环境对象，只能在函数体内部使用。存在以下四种情况：</p>
-<h4 id="1-纯粹的函数调用"><a href="#1-纯粹的函数调用" class="headerlink" title="1. 纯粹的函数调用"></a>1. 纯粹的函数调用</h4><p>这是函数的通常用法，属于全局性调用，因此这里的<strong>this</strong>代表全局对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var x = 1;</span><br><span class="line">function test() &#123;</span><br><span class="line">	console.log(this.x); </span><br><span class="line">&#125;</span><br><span class="line">test(); // 1</span><br></pre></td></tr></table></figure>
-<h4 id="2-作为对象方法的调用"><a href="#2-作为对象方法的调用" class="headerlink" title="2. 作为对象方法的调用"></a>2. 作为对象方法的调用</h4><p>作为某个对象的方法时，<strong>this</strong>就指向这个对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function test() &#123;</span><br><span class="line">	console.log(this.x);</span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;&#125;;</span><br><span class="line">var x = 1;</span><br><span class="line">obj.x = 2;</span><br><span class="line">obj.test = test;</span><br><span class="line"> </span><br><span class="line">obj.test(); // 2</span><br><span class="line">test(); // 1</span><br></pre></td></tr></table></figure>
-<h4 id="3-作为构造函数调用"><a href="#3-作为构造函数调用" class="headerlink" title="3. 作为构造函数调用"></a>3. 作为构造函数调用</h4><p>所谓构造函数，就是通过这个函数可以生成一个新的对象，这时<strong>this</strong>指向这个新对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var x = 2;</span><br><span class="line">function test() &#123;</span><br><span class="line">	this.x = 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var obj = new test();</span><br><span class="line">obj.x // 1</span><br><span class="line">x  // 2</span><br></pre></td></tr></table></figure>
-<p>x的值还是为2，表明全局变量<strong>x</strong>的值没变。</p>
-<h4 id="4-apply调用"><a href="#4-apply调用" class="headerlink" title="4. apply调用"></a>4. apply调用</h4><p><strong>apply()</strong>是函数的一个方法，作用是改变函数的调用对象。它的第一个参数表示改变后的调用这个函数的对象，因此这时的<strong>this</strong>就指向第一个函数。第一个参数为空时，默认为全局对象，<strong>this</strong>就指向全局对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var x = 0;</span><br><span class="line">function test() &#123;</span><br><span class="line">	console.log(this.x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var obj = &#123;&#125;;</span><br><span class="line">obj.x = 1;</span><br><span class="line">obj.m = test;</span><br><span class="line">obj.m.apply() // 0 this指向全局对象</span><br><span class="line">obj.m.apply(obj); //1 this指向obj</span><br></pre></td></tr></table></figure>
+        <p><em>修言所书掘金小册<a href="https://juejin.im/book/5c70fc83518825428d7f9dfb" target="_blank" rel="noopener">JavaScript 设计模式核⼼原理与应⽤实践</a>学习笔记，加深印象</em></p>
+<h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><blockquote>
+<p>在软件工程中，设计模式是对软件设计中普遍存在或反复出现的各种问题所提出的解决方案。</p>
+</blockquote>
+<h3 id="前端核心竞争力"><a href="#前端核心竞争力" class="headerlink" title="前端核心竞争力"></a>前端核心竞争力</h3><ul>
+<li>能用健壮的代码解决具体的问题</li>
+<li>能用抽象的思维应对复杂的系统</li>
+<li>能用工程化的思想规划更大规模的业务</li>
+</ul>
+<h3 id="知识体系概览"><a href="#知识体系概览" class="headerlink" title="知识体系概览"></a>知识体系概览</h3><p><img src="/img/design.png" alt="概览"></p>
+<h3 id="SOLID设计原则"><a href="#SOLID设计原则" class="headerlink" title="SOLID设计原则"></a>SOLID设计原则</h3><p>设计模式的指导理论，帮助规避不良的软件设计。</p>
+<ul>
+<li>单一功能原则（Single Responsibility Priciple）</li>
+<li>开放封闭原则（Opened Closed Principle）</li>
+<li>里式替换原则（Liskov Substitution Principle）</li>
+<li>接口隔离原则（Interface Segregation Principle）</li>
+<li>依赖反转原则（Dependency Inversion Principle）</li>
+</ul>
+<p>javascript设计模式中主要围绕“单一功能”和“开放封闭”这两个原则展开。</p>
+<p>设计模式核心思想 - <strong>封装变化：将变与不变分离，确保变化的部分灵活，不变的部分稳定</strong>。</p>
+<h3 id="经典的23种设计模式"><a href="#经典的23种设计模式" class="headerlink" title="经典的23种设计模式"></a>经典的23种设计模式</h3><p><img src="/img/design2.png" alt="23种设计模式"></p>
+<p>不论创建型、结构型、行为型，都是在用自己的方式去封装<strong>不同类型</strong>的变化</p>
+<ul>
+<li>创建型：封装创建对象过程中的变化，如工厂模式。它做的事情是<strong>将创建对象的过程抽离</strong>；</li>
+<li>结构型：封装对象之间组合方式的变化，目的在于灵活地表达对象间的配合与依赖关系；</li>
+<li>行为型：将对象千变万化的行为进行抽离，确保能安全、方便地对行为（笔者注：对行为还是对对象？）进行更改。</li>
+</ul>
+
     </div>
     
     <div class="post-footer">
@@ -208,15 +222,10 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2019/03/12/jsnote4/" class="pre-post btn btn-default" title="javascript学习笔记（四）-- 闭包">
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">javascript学习笔记（四）-- 闭包</span>
-        </a>
     
-    
-        <a href="/2019/01/09/jsnote2/" class="next-post btn btn-default" title="javascript学习笔记（二）-- 调用堆栈">
+        <a href="/2019/07/11/jsnote6/" class="next-post btn btn-default" title="jsnote6">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">javascript学习笔记（二）-- 调用堆栈</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">jsnote6</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -259,7 +268,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#this"><span class="toc-text">this</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-纯粹的函数调用"><span class="toc-text">1. 纯粹的函数调用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-作为对象方法的调用"><span class="toc-text">2. 作为对象方法的调用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-作为构造函数调用"><span class="toc-text">3. 作为构造函数调用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-apply调用"><span class="toc-text">4. apply调用</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#设计模式"><span class="toc-text">设计模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端核心竞争力"><span class="toc-text">前端核心竞争力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#知识体系概览"><span class="toc-text">知识体系概览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SOLID设计原则"><span class="toc-text">SOLID设计原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#经典的23种设计模式"><span class="toc-text">经典的23种设计模式</span></a></li></ol>
         
     </div>
 </aside>
